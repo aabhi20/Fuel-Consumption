@@ -28,22 +28,22 @@ const AircraftSelector = ({ selectedAircraft, onSelect }) => {
   };
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-[1vw]">
       {/* Header */}
-      <div className="flex items-center mb-4">
-        <PlaneIcon className="w-5 h-5 text-blue-600 mr-2" />
-        <h4 className="text-base font-medium text-gray-900">
+      <div className="flex items-center mb-[1vw]">
+        <PlaneIcon className="w-[1.5vw] h-[1.5vw] text-blue-600 mr-[0.5vw]" />
+        <h4 className="text-[1.2vw] font-medium text-gray-900">
           Select Aircraft Type
         </h4>
       </div>
 
       {/* Aircraft Cards */}
-      <div className="space-y-3">
+      <div className="space-y-[0.8vw]">
         {Object.entries(aircraftTypes).map(([key, aircraft]) => (
           <div key={key} className="relative">
             <div
               className={`
-                cursor-pointer rounded-lg border-2 p-4 transition-all duration-200
+                cursor-pointer rounded-lg border-2 p-[1vw] transition-all duration-200
                 ${
                   selectedAircraft === key
                     ? "border-blue-500 bg-blue-50"
@@ -56,26 +56,26 @@ const AircraftSelector = ({ selectedAircraft, onSelect }) => {
               <div className="flex items-center justify-between">
                 <div className="flex items-center flex-1">
                   {/* Aircraft Icon */}
-                  <div className="text-2xl mr-3">{aircraft.icon}</div>
+                  <div className="text-[2vw] mr-[0.8vw]">{aircraft.icon}</div>
 
                   {/* Aircraft Info */}
                   <div className="flex-1">
-                    <div className="flex items-center gap-3 mb-1">
-                      <h5 className="text-lg font-semibold text-gray-900">
+                    <div className="flex items-center gap-[0.8vw] mb-[0.3vw]">
+                      <h5 className="text-[1.4vw] font-semibold text-gray-900">
                         {aircraft.name}
                       </h5>
                       <span
-                        className={`px-2 py-1 text-xs font-medium rounded-full ${getEfficiencyColor(
+                        className={`px-[0.5vw] py-[0.2vw] text-[0.8vw] font-medium rounded-full ${getEfficiencyColor(
                           aircraft.efficiency
                         )}`}
                       >
                         {aircraft.efficiency}
                       </span>
                     </div>
-                    <p className="text-sm text-gray-600">
+                    <p className="text-[1vw] text-gray-600">
                       {aircraft.description}
                     </p>
-                    <p className="text-sm text-gray-500 mt-1">
+                    <p className="text-[1vw] text-gray-500 mt-[0.3vw]">
                       <strong>Fuel Rate:</strong> {aircraft.fuelRate} kg/km
                     </p>
                   </div>
@@ -84,7 +84,7 @@ const AircraftSelector = ({ selectedAircraft, onSelect }) => {
                 {/* Selection Indicator */}
                 <div
                   className={`
-                  w-6 h-6 rounded-full border-2 flex items-center justify-center
+                  w-[1.5vw] h-[1.5vw] rounded-full border-2 flex items-center justify-center
                   ${
                     selectedAircraft === key
                       ? "border-[#5948DB] bg-[#5948DB]"
@@ -93,7 +93,7 @@ const AircraftSelector = ({ selectedAircraft, onSelect }) => {
                 `}
                 >
                   {selectedAircraft === key && (
-                    <div className="w-3 h-3 bg-white rounded-full"></div>
+                    <div className="w-[0.8vw] h-[0.8vw] bg-white rounded-full"></div>
                   )}
                 </div>
               </div>
@@ -104,7 +104,7 @@ const AircraftSelector = ({ selectedAircraft, onSelect }) => {
                   e.stopPropagation();
                   toggleDetails(key);
                 }}
-                className="mt-3 text-sm text-[#5948DB] hover:text-blue-800 font-medium"
+                className="mt-[0.8vw] text-[1vw] text-[#5948DB] hover:text-blue-800 font-medium"
               >
                 {showDetails[key] ? "Hide Details" : "Show Details"}
               </button>
@@ -112,8 +112,8 @@ const AircraftSelector = ({ selectedAircraft, onSelect }) => {
 
             {/* Expandable Details */}
             {showDetails[key] && (
-              <div className="mt-2 ml-4 p-4 bg-gray-50 rounded-lg border border-gray-200">
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm">
+              <div className="mt-[0.5vw] ml-[1vw] p-[1vw] bg-gray-50 rounded-lg border border-gray-200">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-[1vw] text-[1vw]">
                   <div>
                     <p className="font-medium text-gray-700">Max Range</p>
                     <p className="text-gray-600">{aircraft.maxRange}</p>
@@ -127,7 +127,7 @@ const AircraftSelector = ({ selectedAircraft, onSelect }) => {
                     <p className="text-gray-600">{aircraft.category}</p>
                   </div>
                 </div>
-                <div className="mt-3">
+                <div className="mt-[0.8vw]">
                   <p className="font-medium text-gray-700">Examples:</p>
                   <p className="text-gray-600">
                     {aircraft.examples.join(", ")}
@@ -141,10 +141,10 @@ const AircraftSelector = ({ selectedAircraft, onSelect }) => {
 
       {/* Selection Summary */}
       {selectedAircraft && (
-        <div className="mt-4 p-4 bg-white  border border-[#5948DB] rounded-lg">
+        <div className="mt-[1vw] p-[1vw] bg-white border border-[#5948DB] rounded-lg">
           <div className="flex items-center">
-            <div className="w-3 h-3 bg-[#5948DB] rounded-full mr-2"></div>
-            <p className="text-sm text-[#5948DB]">
+            <div className="w-[0.8vw] h-[0.8vw] bg-[#5948DB] rounded-full mr-[0.5vw]"></div>
+            <p className="text-[1vw] text-[#5948DB]">
               <strong>Selected:</strong> {aircraftTypes[selectedAircraft].name}{" "}
               -{aircraftTypes[selectedAircraft].fuelRate} kg/km fuel consumption
             </p>
