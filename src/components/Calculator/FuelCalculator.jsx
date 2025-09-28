@@ -43,7 +43,7 @@ const FuelCalculator = () => {
     selectedAircraft;
 
   return (
-    <div className="max-w-7xl mx-auto space-y-8">
+    <div className="max-w-[95vw] sm:max-w-[90vw] md:max-w-[85vw] lg:max-w-[80vw] mx-auto space-y-8">
       {/* Input Section */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <Card title="Flight Route" className="h-fit">
